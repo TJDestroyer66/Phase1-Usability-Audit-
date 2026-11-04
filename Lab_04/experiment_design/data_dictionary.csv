@@ -1,0 +1,12 @@
+Variable_Name,Variable_Type,Data_Type,Description,Measurement
+Participant_ID,Identifier,String,Anonymous participant identifier,P01-P06
+Interface,Independent,String,Interface condition tested,A or B
+Presentation_Order,Control,String,Order of interface presentation,AB or BA
+Period,Control,Integer,Position of interface in session,1 or 2
+Task_Scenario,Control,String,Assigned task scenario,Scenario_1 or Scenario_2
+Task_Completion_Time_sec,Dependent,Float,"Elapsed time to verified completion, capped at 300 seconds",Seconds
+Error_Count_Total,Dependent,Integer,"Incorrect entries, rejected submissions, and participant corrections",Count
+Task_Success_Binary,Dependent,Integer,Whether task was saved and verified,0 or 1
+SEQ_Rating,Dependent,Integer,Single Ease Question rating,1-7
+Researcher_Assistance,Control,Integer,Number of researcher interventions,Count
+Researcher_Notes,Qualitative,String,"Observations, interruptions, or technical issues",Free text

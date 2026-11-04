@@ -1,0 +1,13 @@
+Participant_ID,Interface,Presentation_Order,Period,Task_Scenario,Task_Completion_Time_sec,Error_Count_Total,Task_Success_Binary,SEQ_Rating,Researcher_Assistance,Researcher_Notes
+P01,A,AB,1,Scenario_1,78,2,1,5,0,A: briefly corrected a due-date entry; B: completed without observed errors.
+P01,B,AB,2,Scenario_2,65,0,1,6,0,B: used the review step to check details.
+P02,B,BA,1,Scenario_1,70,1,1,5,0,B: paused to understand the step navigation.
+P02,A,BA,2,Scenario_2,76,1,1,5,0,A: corrected a course field before saving.
+P03,A,AB,1,Scenario_1,92,2,1,4,0,A: initially overlooked the priority options.
+P03,B,AB,2,Scenario_2,73,1,1,6,0,B: noticed and corrected a title typo during review.
+P04,B,BA,1,Scenario_1,68,0,1,6,0,B: moved through the wizard confidently.
+P04,A,BA,2,Scenario_2,81,2,1,5,0,A: made two corrections before saving.
+P05,A,AB,1,Scenario_1,84,1,1,5,0,A: checked required fields before submitting.
+P05,B,AB,2,Scenario_2,71,0,1,6,0,B: completed all steps without visible difficulty.
+P06,B,BA,1,Scenario_1,75,1,1,6,0,B: read each step before continuing.
+P06,A,BA,2,Scenario_2,79,1,1,5,0,A: corrected the due date once.
