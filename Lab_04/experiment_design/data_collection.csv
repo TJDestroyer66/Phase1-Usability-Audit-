@@ -1,0 +1,13 @@
+Participant_ID,Interface,Presentation_Order,Period,Task_Scenario,Task_Completion_Time_sec,Error_Count_Total,Task_Success_Binary,SEQ_Rating,Researcher_Assistance,Researcher_Notes
+P01,A,AB,1,Scenario_1,,,,,,
+P01,B,AB,2,Scenario_2,,,,,,
+P02,B,BA,1,Scenario_1,,,,,,
+P02,A,BA,2,Scenario_2,,,,,,
+P03,A,AB,1,Scenario_1,,,,,,
+P03,B,AB,2,Scenario_2,,,,,,
+P04,B,BA,1,Scenario_1,,,,,,
+P04,A,BA,2,Scenario_2,,,,,,
+P05,A,AB,1,Scenario_1,,,,,,
+P05,B,AB,2,Scenario_2,,,,,,
+P06,B,BA,1,Scenario_1,,,,,,
+P06,A,BA,2,Scenario_2,,,,,,
