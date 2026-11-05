@@ -1,0 +1,16 @@
+Participant_ID,Card_Label,Participant_Category
+P02,Create a New Task,Managing Tasks
+P02,Edit an Existing Task,Managing Tasks
+P02,Delete a Task,Managing Tasks
+P02,View Task Details,Managing Tasks
+P02,View All Tasks,Finding Tasks
+P02,Search for a Task,Finding Tasks
+P02,Filter Tasks by Course,Finding Tasks
+P02,Filter Tasks by Priority,Finding Tasks
+P02,Sort Tasks by Due Date,Deadlines
+P02,View Overdue Tasks,Deadlines
+P02,View Upcoming Deadlines,Deadlines
+P02,Mark a Task as Complete,Completion Tracking
+P02,View Completed Tasks,Completion Tracking
+P02,View Pending Tasks,Completion Tracking
+P02,View Task Progress,Completion Tracking

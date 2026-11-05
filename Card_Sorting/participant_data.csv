@@ -1,0 +1,46 @@
+Participant_ID,Card_Label,Participant_Category
+P01,View All Tasks,Task Management
+P01,Create a New Task,Task Management
+P01,Edit an Existing Task,Task Management
+P01,Delete a Task,Task Management
+P01,Mark a Task as Complete,Task Progress
+P01,View Completed Tasks,Task Progress
+P01,View Pending Tasks,Task Progress
+P01,Search for a Task,Task Organization
+P01,Filter Tasks by Course,Task Organization
+P01,Filter Tasks by Priority,Task Organization
+P01,Sort Tasks by Due Date,Task Organization
+P01,View Overdue Tasks,Task Progress
+P01,View Upcoming Deadlines,Task Progress
+P01,View Task Details,Task Management
+P01,View Task Progress,Task Progress
+P02,View All Tasks,Finding Tasks
+P02,Create a New Task,Managing Tasks
+P02,Edit an Existing Task,Managing Tasks
+P02,Delete a Task,Managing Tasks
+P02,Mark a Task as Complete,Completion Tracking
+P02,View Completed Tasks,Completion Tracking
+P02,View Pending Tasks,Completion Tracking
+P02,Search for a Task,Finding Tasks
+P02,Filter Tasks by Course,Finding Tasks
+P02,Filter Tasks by Priority,Finding Tasks
+P02,Sort Tasks by Due Date,Deadlines
+P02,View Overdue Tasks,Deadlines
+P02,View Upcoming Deadlines,Deadlines
+P02,View Task Details,Managing Tasks
+P02,View Task Progress,Completion Tracking
+P03,View All Tasks,Task Navigation
+P03,Create a New Task,Task Actions
+P03,Edit an Existing Task,Task Actions
+P03,Delete a Task,Task Actions
+P03,Mark a Task as Complete,Task Actions
+P03,View Completed Tasks,Tracking and Deadlines
+P03,View Pending Tasks,Tracking and Deadlines
+P03,Search for a Task,Task Navigation
+P03,Filter Tasks by Course,Task Navigation
+P03,Filter Tasks by Priority,Task Navigation
+P03,Sort Tasks by Due Date,Tracking and Deadlines
+P03,View Overdue Tasks,Tracking and Deadlines
+P03,View Upcoming Deadlines,Tracking and Deadlines
+P03,View Task Details,Task Navigation
+P03,View Task Progress,Tracking and Deadlines

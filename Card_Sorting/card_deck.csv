@@ -1,0 +1,16 @@
+Card_ID,Card_Label
+C01,View All Tasks
+C02,Create a New Task
+C03,Edit an Existing Task
+C04,Delete a Task
+C05,Mark a Task as Complete
+C06,View Completed Tasks
+C07,View Pending Tasks
+C08,Search for a Task
+C09,Filter Tasks by Course
+C10,Filter Tasks by Priority
+C11,Sort Tasks by Due Date
+C12,View Overdue Tasks
+C13,View Upcoming Deadlines
+C14,View Task Details
+C15,View Task Progress

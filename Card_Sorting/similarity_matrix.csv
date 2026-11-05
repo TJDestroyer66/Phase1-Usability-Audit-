@@ -1,0 +1,16 @@
+Card,View All Tasks,Create a New Task,Edit an Existing Task,Delete a Task,Mark a Task as Complete,View Completed Tasks,View Pending Tasks,Search for a Task,Filter Tasks by Course,Filter Tasks by Priority,Sort Tasks by Due Date,View Overdue Tasks,View Upcoming Deadlines,View Task Details,View Task Progress
+View All Tasks,3,1,1,1,0,0,0,2,2,2,0,0,0,2,0
+Create a New Task,1,3,3,3,1,0,0,0,0,0,0,0,0,2,0
+Edit an Existing Task,1,3,3,3,1,0,0,0,0,0,0,0,0,2,0
+Delete a Task,1,3,3,3,1,0,0,0,0,0,0,0,0,2,0
+Mark a Task as Complete,0,1,1,1,3,2,2,0,0,0,0,1,1,0,2
+View Completed Tasks,0,0,0,0,2,3,3,0,0,0,1,2,2,0,3
+View Pending Tasks,0,0,0,0,2,3,3,0,0,0,1,2,2,0,3
+Search for a Task,2,0,0,0,0,0,0,3,3,3,1,0,0,1,0
+Filter Tasks by Course,2,0,0,0,0,0,0,3,3,3,1,0,0,1,0
+Filter Tasks by Priority,2,0,0,0,0,0,0,3,3,3,1,0,0,1,0
+Sort Tasks by Due Date,0,0,0,0,0,1,1,1,1,1,3,2,2,0,1
+View Overdue Tasks,0,0,0,0,1,2,2,0,0,0,2,3,3,0,2
+View Upcoming Deadlines,0,0,0,0,1,2,2,0,0,0,2,3,3,0,2
+View Task Details,2,2,2,2,0,0,0,1,1,1,0,0,0,3,0
+View Task Progress,0,0,0,0,2,3,3,0,0,0,1,2,2,0,3
