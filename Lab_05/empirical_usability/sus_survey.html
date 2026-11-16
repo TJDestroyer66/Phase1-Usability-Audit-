@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudyFlow – System Usability Scale</title>
+<style>
+  :root { color-scheme: light; font-family: system-ui, -apple-system, Segoe UI, sans-serif; }
+  body { margin: 0; background: #f5f6f8; color: #17202a; line-height: 1.55; }
+  main { max-width: 850px; margin: 2rem auto; padding: 1.5rem; background: #fff; border-radius: 12px; }
+  h1 { line-height: 1.2; }
+  .intro, .notice { background: #eef3f8; padding: 1rem; border-radius: 8px; }
+  fieldset { border: 1px solid #667085; border-radius: 8px; margin: 1rem 0; padding: 1rem; }
+  legend { font-weight: 650; padding: 0 .35rem; }
+  .choices { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .5rem; margin-top: .75rem; }
+  .choice { display: flex; align-items: center; gap: .35rem; border: 1px solid #98a2b3; border-radius: 6px; padding: .55rem .4rem; min-height: 44px; }
+  input[type=radio] { width: 1.1rem; height: 1.1rem; flex: 0 0 auto; }
+  input:focus-visible, button:focus-visible { outline: 3px solid #155eef; outline-offset: 3px; }
+  button { padding: .75rem 1rem; margin: .5rem .5rem .5rem 0; border: 0; border-radius: 7px; background: #174ea6; color: #fff; font-size: 1rem; cursor: pointer; }
+  button.secondary { background: #475467; }
+  .muted { color: #344054; font-size: .94rem; }
+  #status { margin-top: 1rem; padding: .8rem; border-radius: 6px; }
+  #status:empty { display: none; }
+  .error { background: #fff1f0; border: 2px solid #b42318; color: #7a271a; }
+  .success { background: #ecfdf3; border: 1px solid #027a48; color: #05603a; }
+  #result { margin-top: 1rem; font-weight: 700; }
+  @media (max-width: 620px) { main { margin: 0; padding: 1rem; border-radius: 0; } .choices { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>System Usability Scale (SUS)</h1>
+  <p class="intro">Please answer the following statements based on your experience using the interface you just tested. There are no right or wrong answers. Select one response for every statement.</p>
+  <p class="muted"><strong>Participant ID:</strong> <input id="participantId" name="participantId" type="text" maxlength="8" placeholder="e.g., P01" aria-label="Participant ID"></p>
+  <p class="muted"><strong>Interface tested:</strong>
+    <select id="interfaceName" aria-label="Interface tested">
+      <option value="">Select an interface</option>
+      <option value="A">Interface A – Single-page form</option>
+      <option value="B">Interface B – Guided wizard</option>
+    </select>
+  </p>
+  <p class="muted">Response scale: 1 = Strongly Disagree; 2 = Disagree; 3 = Neither Agree nor Disagree; 4 = Agree; 5 = Strongly Agree.</p>
+
+  <form id="susForm" novalidate>
+    <div id="questions"></div>
+    <button type="submit">Calculate SUS score</button>
+    <button type="button" class="secondary" id="download" disabled>Download response CSV</button>
+    <div id="status" role="alert" aria-live="polite" tabindex="-1"></div>
+    <div id="result" aria-live="polite"></div>
+  </form>
+</main>
+<script>
+const items = [
+"I think that I would like to use this system frequently.",
+"I found the system unnecessarily complex.",
+"I thought the system was easy to use.",
+"I think that I would need the support of a technical person to be able to use this system.",
+"I found the various functions in this system were well integrated.",
+"I thought there was too much inconsistency in this system.",
+"I would imagine that most people would learn to use this system very quickly.",
+"I found the system very cumbersome to use.",
+"I felt very confident using the system.",
+"I needed to learn a lot of things before I could get going with this system."
+];
+const labels = ["1 – Strongly Disagree","2 – Disagree","3 – Neither Agree nor Disagree","4 – Agree","5 – Strongly Agree"];
+const container = document.getElementById("questions");
+items.forEach((item, i) => {
+  const n = i + 1;
+  const fs = document.createElement("fieldset");
+  const legend = document.createElement("legend");
+  legend.textContent = `${n}. ${item}`;
+  fs.appendChild(legend);
+  const choices = document.createElement("div");
+  choices.className = "choices";
+  for (let value = 1; value <= 5; value++) {
+    const id = `q${n}_${value}`;
+    const wrapper = document.createElement("div");
+    wrapper.className = "choice";
+    const input = document.createElement("input");
+    input.type = "radio"; input.name = `q${n}`; input.id = id; input.value = value; input.required = true;
+    const label = document.createElement("label");
+    label.htmlFor = id; label.textContent = labels[value - 1];
+    wrapper.append(input, label); choices.appendChild(wrapper);
+  }
+  fs.appendChild(choices); container.appendChild(fs);
+});
+let latest = null;
+const form = document.getElementById("susForm");
+const statusBox = document.getElementById("status");
+const resultBox = document.getElementById("result");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  statusBox.className = ""; statusBox.textContent = ""; resultBox.textContent = "";
+  const pid = document.getElementById("participantId").value.trim();
+  const condition = document.getElementById("interfaceName").value;
+  if (!pid || !condition) {
+    statusBox.className = "error";
+    statusBox.textContent = "Please enter a participant ID and select the interface tested.";
+    statusBox.focus(); return;
+  }
+  const responses = [];
+  for (let i = 1; i <= 10; i++) {
+    const selected = form.querySelector(`input[name="q${i}"]:checked`);
+    if (!selected) {
+      statusBox.className = "error";
+      statusBox.textContent = `Please answer item ${i} before calculating the score.`;
+      const first = form.querySelector(`input[name="q${i}"]`);
+      first.focus(); return;
+    }
+    responses.push(Number(selected.value));
+  }
+  const contributions = responses.map((rating, index) => index % 2 === 0 ? rating - 1 : 5 - rating);
+  const total = contributions.reduce((sum, value) => sum + value, 0);
+  const sus = total * 2.5;
+  latest = { participant_id: pid, interface: condition, ...Object.fromEntries(responses.map((v,i)=>[`item_${i+1}`,v])), sus_score: sus };
+  resultBox.textContent = `SUS score: ${sus.toFixed(1)} / 100`;
+  statusBox.className = "success";
+  statusBox.textContent = "All ten items are complete. Download the response CSV and transfer it to the restricted research dataset.";
+  document.getElementById("download").disabled = false;
+});
+document.getElementById("download").addEventListener("click", () => {
+  if (!latest) return;
+  const headers = Object.keys(latest);
+  const row = headers.map(k => latest[k]);
+  const csv = [headers.join(","), row.join(",")].join("\r\n");
+  const blob = new Blob([csv], {type:"text/csv;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = `sus_${latest.participant_id}_${latest.interface}.csv`;
+  document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+});
+</script>
+</body>
+</html>
